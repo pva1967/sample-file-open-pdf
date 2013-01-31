@@ -1,17 +1,18 @@
 document.addEventListener("deviceready", onDeviceReady, false);
+//Activate :active state
+document.addEventListener("touchstart", function() {}, false);
 
 function onDeviceReady() {
-    $("#btnOpenPDF").click(function() {
+    document.getElementById('btnOpenPDF').onclick = function() {
         var app = new Application();
         app.Run();
-    });
+    }
 }
 
 function Application() {
 }
 
 Application.prototype.Run = function() {
-    debugger;
     if (device.platform == 'iPad' || device.platform == 'iPhone') {
         var url = window.location.href.replace('index.html', 'sample.pdf');
         window.plugins.childBrowser.showWebPage(url);
