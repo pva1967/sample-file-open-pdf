@@ -13,12 +13,12 @@ function Application() {
 }
 
 Application.prototype.Run = function() {
-    if (device.platform == 'iPad' || device.platform == 'iPhone') {
-        var url = window.location.href.replace('index.html', 'sample.pdf');
-        window.plugins.childBrowser.showWebPage(url);
-    } else if (device.platform == 'Android') {
+    if (device.platform === 'Android') {
         var path = "file://" + this.getWorkingFolder() + "sample.pdf";
         window.plugins.childBrowser.openExternal(path);
+    } else {
+        var url = window.location.href.replace('index.html', 'sample.pdf');
+        window.plugins.childBrowser.showWebPage(url);
     }
 }
 
