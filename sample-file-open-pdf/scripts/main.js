@@ -4,6 +4,7 @@ document.addEventListener("touchstart", function() {
 }, false);
 
 function onDeviceReady() {
+    navigator.splashscreen.hide();
 	document.getElementById('btnOpenPDF').onclick = function() {
 		var app = new Application();
 		app.Run();
