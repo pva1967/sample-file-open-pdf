@@ -4,7 +4,7 @@ document.addEventListener("touchstart", function() {
 }, false);
 
 function onDeviceReady() {
-    navigator.splashscreen.hide();
+	navigator.splashscreen.hide();
 	document.getElementById('btnOpenPDF').onclick = function() {
 		var app = new Application();
 		app.Run();
@@ -15,19 +15,20 @@ function Application() {
 }
 
 Application.prototype.Run = function() {
-	var infoDiv = document.getElementById("infoField");
-    
-	if (device.platform === 'Android') {
+	if (window.plugins !== undefined) {
+		var infoDiv = document.getElementById("infoField");
 		var path = this.getWorkingFolder().replace('http://', 'file://') + "sample.pdf";
-
 		infoDiv.innerText = path;
-		window.plugins.childBrowser.openExternal(path);
-	} else {
-		var url = window.location.href.replace('index.html', 'sample.pdf');
         
-		infoDiv.innerText = url;
-		window.plugins.childBrowser.showWebPage(url);
+		if (device.platform === 'Android') {
+			window.open(path, '_system');
+		}
+		else {
+			window.open(path, '_blank');
+		}
 	}
+	else
+		alert("Not Supported in Simulator.")
 }
 
 Application.prototype.getWorkingFolder = function() {
