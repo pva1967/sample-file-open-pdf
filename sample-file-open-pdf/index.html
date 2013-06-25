@@ -6,7 +6,6 @@
 		<meta charset="utf-8">
 		<link href="styles/main.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-		<script type="text/javascript" charset="utf-8" src="Plugins/Child Browser/childbrowser.js"></script>
 		<script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
 	</head>
 	<body>
@@ -14,11 +13,16 @@
 			<h1>Open PDF Sample</h1>
 		</header>
 		<div class="content">
-			<div>
-				<button class="button big" id="btnOpenPDF">Open PDF</button>
+            <div class="action-area ch40">
+                <button class="button dh" id="btnOpenPDF">Open PDF</button>
 			</div>
-			<div id="infoField" type="text" readonly="readonly"></div>
-            <b>Note: For Android you need a PDF reader installed.</b>
+            <div class="result-area ch60">
+                <div class="results">
+                    <div class="desc">Note: For Android you need a PDF reader installed.</div>
+                </div>
+                <div id="infoField" type="text" readonly="readonly"></div>
+                <div class="separator"></div>
+            </div> 
 		</div>
 		<footer class="footer">
 			<div>Cordova API Samples</div>
