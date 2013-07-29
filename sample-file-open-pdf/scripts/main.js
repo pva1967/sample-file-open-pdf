@@ -15,7 +15,10 @@ function Application() {
 }
 
 Application.prototype.Run = function() {
-	if (window.plugins !== undefined) {
+	if (device.uuid == "e0101010d38bde8e6740011221af335301010333" || device.uuid == "e0908060g38bde8e6740011221af335301010333") {
+		alert("Not Supported in Simulator.");
+	}
+	else {
 		var infoDiv = document.getElementById("infoField");
 		var path = this.getWorkingFolder().replace('http://', 'file://') + "sample.pdf";
 		infoDiv.innerText = path;
@@ -27,8 +30,6 @@ Application.prototype.Run = function() {
 			window.open(path, '_blank');
 		}
 	}
-	else
-		alert("Not Supported in Simulator.")
 }
 
 Application.prototype.getWorkingFolder = function() {
