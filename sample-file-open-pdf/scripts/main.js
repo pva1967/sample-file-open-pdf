@@ -1,38 +1,38 @@
-document.addEventListener("deviceready", onDeviceReady, false);
+ document.addEventListener("deviceready", onDeviceReady, false);
 //Activate :active state
-document.addEventListener("touchstart", function() {
-}, false);
+document.addEventListener("touchstart", function() {}, false);
 
 function onDeviceReady() {
 	navigator.splashscreen.hide();
-	document.getElementById('btnOpenPDF').onclick = function() {
+	document.getElementById('btnOpenPDF').onclick = function(){
 		var app = new Application();
-		app.Run();
+		app.run();
 	}
 }
 
 function Application() {
 }
 
-Application.prototype.Run = function() {
+Application.prototype ={
+	run : function(){
+		var path,
+			windowTarget,
+			infoDiv = document.getElementById("infoField");
+
 	if (window.navigator.simulator === true) {
 		alert("Not Supported in Simulator.");
+	} else {
+		windowTarget = device.platform.toLowerCase === "ios" ? "_blank" : "_system";
+		path = infoDiv.innerText = this.getFilePath("sample.pdf", windowTarget);
+		window.open(path, windowTarget, "location=yes,hidden=no");
 	}
-	else {
-		var infoDiv = document.getElementById("infoField");
-		var path = this.getWorkingFolder().replace('http://', 'file://') + "sample.pdf";
-		infoDiv.innerText = path;
-        
-		if (device.platform === 'Android') {
-			window.open(path, '_system');
-		}
-		else {
-			window.open(path, '_blank');
-		}
-	}
-}
 
-Application.prototype.getWorkingFolder = function() {
-	var path = window.location.href.replace('index.html', '');
-	return path;
+	},
+	getFilePath: function(filePath, windowTarget){
+		return this.getWorkingFolder().replace("http://", "file://") + filePath;
+	},
+	getWorkingFolder : function() {
+		var indexUrl = window.location.href;
+		return indexUrl.substring(0, indexUrl.indexOf("index.html"));
+	}
 }
