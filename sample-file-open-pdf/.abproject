@@ -51,5 +51,6 @@
     "ID_RESOLUTION_HD720P"
   ],
   "Author": "",
-  "Description": "sample-file-open-pdf"
+  "Description": "sample-file-open-pdf",
+  "Framework": "Cordova"
 }
