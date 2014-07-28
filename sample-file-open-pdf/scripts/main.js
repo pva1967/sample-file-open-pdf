@@ -19,14 +19,13 @@ Application.prototype ={
 			windowTarget,
 			infoDiv = document.getElementById("infoField");
 
-	if (window.navigator.simulator === true) {
-		alert("Not Supported in Simulator.");
-	} else {
-		windowTarget = device.platform.toLowerCase() === "ios" ? "_blank" : "_system";
-		path = infoDiv.innerText = this.getFilePath("sample.pdf", windowTarget);
-		window.open(path, windowTarget, "location=yes,hidden=no");
-	}
-
+		if (window.navigator.simulator === true) {
+			alert("Not Supported in Simulator.");
+		} else {
+			windowTarget = device.platform.toLowerCase() === "ios" ? "_blank" : "_system";
+			path = infoDiv.innerText = this.getFilePath("sample.pdf", windowTarget);
+			window.open(path, windowTarget, "location=yes,hidden=no");
+		}
 	},
 	getFilePath: function(filePath, windowTarget){
 		return this.getWorkingFolder().replace("http://", "file://") + filePath;
