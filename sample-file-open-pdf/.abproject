@@ -38,7 +38,7 @@
     "2"
   ],
   "iOSBackgroundMode": [],
-  "FrameworkVersion": "3.5.0",
+  "FrameworkVersion": "3.7.0",
   "CorePlugins": [
     "org.apache.cordova.device",
     "org.apache.cordova.file",
@@ -61,9 +61,5 @@
   "WP8Publisher": "",
   "WP8Capabilities": [],
   "WP8Requirements": [],
-  "CordovaPluginVariables": {
-    "com.telerik.mobiletesting": {
-      "IOS_APP_URL": ""
-    }
-  }
+  "projectVersion": "1"
 }
